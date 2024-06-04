@@ -28,6 +28,6 @@ public class Produto {
     private Integer quantidade;
 
    @ManyToOne
-   @JoinColumn(name = "fornecedor_i")
+   @JoinColumn(name = "fornecedor_id")
    private Fornecedor fornecedor;
 }

@@ -23,11 +23,8 @@ public class Movimentacao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToMany
-    @JoinTable(name = "movimentacao_produto",
-                joinColumns = @JoinColumn(name = "produto_id"),
-                inverseJoinColumns = @JoinColumn(name = "movimentacao_id"))
-    private Set<Produto> produto = new HashSet<>();
+    @OneToMany(mappedBy = "movimentacao")
+    private Set<MovimentacaoProduto> movimentacaoProdutos = new HashSet<>();
 
     @Enumerated(EnumType.STRING)
     private Tipo tipo;
