@@ -19,10 +19,10 @@ public class ProdutoController {
 
 
     @GetMapping
-    public ResponseEntity<Void> procurarPorId(@RequestParam(name = "id", defaultValue = "") Long id) {
-        produtoService.delete(id);
+    public ResponseEntity<ProdutoDTO> procurarPorId(@RequestParam(name = "id", defaultValue = "") Long id) {
+        ProdutoDTO produtoDTO = produtoService.procurarPorId(id);
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body(produtoDTO);
     }
 
     @PostMapping
